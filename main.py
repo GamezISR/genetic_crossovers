@@ -39,29 +39,37 @@ def partially_mapped_crossover(p1, p2):
                 break
     print(offspring)
 
-
+#OX
 def order_crossover(p1, p2):
+
+    #makes empty offspring
     offspring = make_empty_offspring(10)
     print(offspring)
-    start = 1
-    end = 6
-    count = end
+    start = 1 #could be random
+    end = 6 #could be random
+    count = end #need for later as a counter
+
+    #for loop slices from p2 into offspring
     for i in range(start,end):
         offspring[i] = p1[i]
     print(offspring)
+
+    #for loop adding elements after slice in offspring was added
     for i in range(end, len(offspring)):
         while True:
-            try:
+            try: #.index will return error if not found
                 found = offspring.index(p2[count])
                 if count == len(offspring)-1:
-                    count = 0
+                    count = 0 #need this so i do not get an out bounds error
                 else:
                     count += 1
-            except ValueError:
+            except ValueError: #if not found than error
                 offspring[i] = p2[count]
                 break
     print(offspring)
-    while True:
+
+    #adds elements to empty elements in front of slice in offspring
+    while True: #same thing as before
         counter = 0
         if offspring[counter] != '':
             break
@@ -73,7 +81,6 @@ def order_crossover(p1, p2):
                         count += 1
                     except ValueError:
                         offspring[i] = p2[count]
-
                         break
             counter = counter + 1
     print(offspring)
