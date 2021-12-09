@@ -87,17 +87,22 @@ def order_crossover(p1, p2):
 
 
 
-
+#CX
 def cycle_crossover( p1, p2):
+    #empty offspring
     offspring = make_empty_offspring(10)
     print(offspring)
     position = 0
+
+    #while loop that keeps going till no empty elements in the cycle
     while True:
         if offspring[position] != "":
-            break
-        offspring[position] = p1[position]
-        position = p1.index(p2[position])
+            break #breaks when not " "
+        offspring[position] = p1[position] #places element into offspring
+        position = p1.index(p2[position]) #find where to go next
     print(offspring)
+
+    #this is looking for the empty spot left over after the cycle and filling them 
     count = 0
     for j in p2:
             if j in offspring:
