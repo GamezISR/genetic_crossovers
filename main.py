@@ -1,25 +1,35 @@
+#makes a list with empty elements
 def make_empty_offspring(how_big):
     offspring = []
     for i in range(how_big):
         offspring.append("")
     return offspring
 
+#PMX
 def partially_mapped_crossover(p1, p2):
+
+    #makes empty offspring
     offspring = make_empty_offspring(10)
-    start = 2
-    end = 7
+    start = 2 #this could be random 
+    end = 7 #this could be random
+
+    #this for loop slices into the offspring
     for i in range(len(p1)):
         if i >= start and i < end:
             offspring[i] = p1[i]
     print(offspring)
+
+    #this for loop looks at p2 to see if is in offspring, if not then adds it from front
     for i in range(start):
         for j in p2:
-            if j in offspring:
+            if j in offspring: #returns true if found
                 continue
             else:
                 offspring[i] = j
                 break
     print(offspring)
+
+    #this for loop looks at p2 again after the slice placed in offspring to see if in
     for i in range(end, len(p2)):
         for j in p2:
             if j in offspring:
