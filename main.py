@@ -98,3 +98,14 @@ parent_two = ["F", "A", "G", "D", "H", "C", "E", "B", "J", "I"]
 
 print("Parent 1: ", parent_one)
 print("Parent 2: ", parent_two)
+
+while True:
+  ask = int(input("Which crossover would you like, 1: Partially Mapped 2: Order 3: Cycle "))
+  if ask == 1:
+    partially_mapped_crossover(parent_one,parent_two)
+  elif ask == 2:
+    order_crossover(parent_one,parent_two)
+  elif ask == 3:
+    cycle_crossover(parent_one,parent_two)
+  else:
+    print("Not a choice, bye!")
